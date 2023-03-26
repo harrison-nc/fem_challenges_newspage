@@ -1,8 +1,7 @@
 @font-face {
   font-family: "Inter";
-  src: local("Inter"), 
-      url(assets/fonts/Inter-VariableFont_slnt_wght.ttf)
-      format("truetype");
+  src: local("Inter"),
+    url(assets/fonts/Inter-VariableFont_slnt_wght.ttf) format("truetype");
   font-weight: 400 800;
 }
 
@@ -86,65 +85,75 @@ h3 {
   color: inherit;
 }
 
-[data-menu-toggle]:checked ~ [data-menu-list] {
-  display: auto;
+@media (max-width: 963px) {
+  [data-menu-toggle]:checked ~ [data-menu-list] {
+    display: auto;
+  }
+
+  [data-menu-toggle]:not(:checked) ~ [data-menu-list] {
+    display: none;
+  }
+
+  [data-menu-toggle]:checked ~ [data-menu-toggle-icon]::before {
+    background-image: url(assets/images/icon-menu-close.svg);
+  }
+
+  [data-menu-toggle]:not(:checked) ~ [data-menu-toggle-icon]::before {
+    background-image: url(assets/images/icon-menu.svg);
+  }
+
+  [data-menu-toggle-icon]::before {
+    --size: 16px;
+
+    content: "";
+    display: block;
+    height: var(--size);
+    width: calc(var(--size) * 2);
+    position: relative;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  [data-menu-list] {
+    --width: 65vw;
+    --shadow: hsl(240, 100%, 5%, 0.7);
+    --overlay-width: calc(100vw - var(--width));
+    --overlay-color: hsl(251, 4%, 42%, 0.75);
+
+    position: fixed;
+    inset: 0 0 0 auto;
+    isolation: isolate;
+    width: var(--width);
+    padding: 25vh var(--size-200);
+    background-color: var(--clr-neutral-100);
+    box-shadow: 3px 0 20px var(--shadow);
+    font-size: var(--size-150);
+
+    display: flex;
+    flex-flow: column;
+    gap: var(--size-150);
+  }
+
+  [data-menu-list]::before {
+    content: "";
+    display: block;
+    width: var(--overlay-width);
+    transform: translate(calc(0px - var(--overlay-width)));
+    background-color: var(--overlay-color);
+    position: absolute;
+    inset: 0 auto 0 0;
+  }
 }
 
-[data-menu-toggle]:not(:checked) ~ [data-menu-list] {
-  display: none;
-}
-
-[data-menu-toggle]:checked ~ [data-menu-toggle-icon]::before {
-  background-image: url(assets/images/icon-menu-close.svg);
-}
-
-[data-menu-toggle]:not(:checked) ~ [data-menu-toggle-icon]::before {
-  background-image: url(assets/images/icon-menu.svg);
-}
-
-[data-menu-toggle-icon]::before {
-  --size: 16px;
-
-  content: "";
-  display: block;
-  height: var(--size);
-  width: calc(var(--size) * 2);
-  position: relative;
-  z-index: 1;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  cursor: pointer;
-}
-
-[data-menu-list] {
-  --width: 65vw;
-  --shadow: hsl(240, 100%, 5%, 0.7);
-  --overlay-width: calc(100vw - var(--width));
-  --overlay-color: hsl(251, 4%, 42%, 0.75);
-
-  position: fixed;
-  inset: 0 0 0 auto;
-  isolation: isolate;
-  width: var(--width);
-  padding: 25vh var(--size-200);
-  background-color: var(--clr-neutral-100);
-  box-shadow: 3px 0 20px var(--shadow);
-  font-size: var(--size-150);
-
-  display: flex;
-  flex-flow: column;
-  gap: var(--size-150);
-}
-
-[data-menu-list]::before {
-  content: "";
-  display: block;
-  width: var(--overlay-width);
-  transform: translate(calc(0px - var(--overlay-width)));
-  background-color: var(--overlay-color);
-  position: absolute;
-  inset: 0 auto 0 0;
+@media (min-width: 963px) {
+  [data-menu-list] {
+    display: flex;
+    gap: var(--size-400);
+    color: var(--clr-neutral-300)
+  }
 }
 
 /* Main */
@@ -191,7 +200,7 @@ button {
   text-transform: uppercase;
   letter-spacing: 1.75px;
   font-weight: var(--fw-200);
-  color: var(--clr-neutral-100)
+  color: var(--clr-neutral-100);
 }
 
 /* Articles */
@@ -220,20 +229,20 @@ button {
 }
 
 .articles .content p {
-  color: var(--clr-neutral-300)
+  color: var(--clr-neutral-300);
 }
 
 .articles .content::before {
   content: attr(data-count);
   font-size: var(--size-200);
   font-weight: var(--fw-200);
-  color: var(--clr-neutral-200)
+  color: var(--clr-neutral-200);
 }
 
 /* News */
 
 .news p {
-  color: var(--clr-neutral-300)
+  color: var(--clr-neutral-300);
 }
 
 .news {
@@ -303,7 +312,7 @@ button {
 .even-columns {
   display: flex;
   flex-flow: row wrap;
-  gap: var(--size-200)
+  gap: var(--size-200);
 }
 
 .even-columns > * {

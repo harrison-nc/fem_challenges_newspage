@@ -149,27 +149,37 @@ h3 {
 
 /* Main */
 
-.primary-header p {
-  color: var(--clr-neutral-300);
-  line-height: 1.75;
-}
-
-.primary-header > img {
-  max-height: 400px;
-  max-width: auto;
-}
-
 .primary-header {
   display: flex;
   flex-flow: column;
-  gap: var(--size-100);
+  gap: var(--size-300);
+}
+
+.primary-header .title {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.primary-header h1 {
+  font-size: clamp(var(--size-100), var(--size-500), 10vh);
 }
 
 .primary-header .content {
   display: flex;
   flex-flow: column;
+  gap: var(--size-200);
   align-items: flex-start;
-  gap: var(--size-300);
+  line-height: 1.75;
+}
+
+.primary-header .title,
+.primary-header .content {
+  flex-basis: 250px;
+  flex-shrink: 1;
+}
+
+.primary-header img {
+  max-height: 395px;
 }
 
 /* Button */
@@ -234,6 +244,7 @@ button {
   color: var(--clr-neutral-200);
   padding: var(--size-200) var(--size-100);
   min-height: 400px;
+  align-self: flex-start;
 }
 
 .news h2 {
@@ -305,7 +316,7 @@ button {
 }
 
 .priority-two-columns > :first-child {
-  flex: 99999 1 500px;
+  flex: 99999 1 550px;
 }
 
 .priority-two-columns > :last-child {

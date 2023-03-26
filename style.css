@@ -1,0 +1,158 @@
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), 
+      url(assets/fonts/Inter-VariableFont_slnt_wght.ttf)
+      format("truetype");
+  font-weight: 400 800;
+}
+
+:root {
+  --clr-primary-100: hsl(35, 77%, 62%);
+  --clr-primary-200: hsl(5, 85%, 63%);
+
+  --clr-neutral-100: hsl(36, 100%, 99%);
+  --clr-neutral-200: hsl(233, 8%, 79%);
+  --clr-neutral-300: hsl(236, 13%, 42%);
+  --clr-neutral-400: hsl(240, 100%, 5%);
+
+  --size-100: 1rem;
+  --size-150: 1.25rem;
+  --size-200: 1.5rem;
+  --size-300: 2rem;
+  --size-400: 2.5rem;
+  --size-500: 3rem;
+  --size-600: 3.5rem;
+  --size-700: 4rem;
+
+  --ff-primary: "Inter";
+
+  --fw-100: 400;
+  --fw-200: 700;
+  --fw-300: 800;
+
+  --fs-primary: 15px;
+
+  font-size: var(--fs-primary);
+  font-family: var(--ff-primary);
+  color: var(--clr-neutral-400);
+  background-color: var(--clr-neutral-100);
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--size-300);
+}
+
+/* Navigation */
+
+.primary-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+[data-menu-toggle]:checked ~ [data-menu-list] {
+  display: auto;
+}
+
+[data-menu-toggle]:not(:checked) ~ [data-menu-list] {
+  display: none;
+}
+
+[data-menu-toggle]:checked ~ [data-menu-toggle-icon]::before {
+  background-image: url(assets/images/icon-menu-close.svg);
+}
+
+[data-menu-toggle]:not(:checked) ~ [data-menu-toggle-icon]::before {
+  background-image: url(assets/images/icon-menu.svg);
+}
+
+[data-menu-toggle-icon]::before {
+  --size: 20px;
+
+  content: "";
+  display: block;
+  height: var(--size);
+  width: calc(var(--size) * 2);
+  position: relative;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+[data-menu-list][aria-hidden="false"] {
+  --width: 65vw;
+  --shadow: hsl(240, 100%, 5%, 0.7);
+  --overlay-width: calc(100vw - var(--width));
+  --overlay-color: hsl(251, 4%, 42%, 0.75);
+
+  position: fixed;
+  inset: 0 0 0 auto;
+  isolation: isolate;
+  width: var(--width);
+  padding: 25vh var(--size-200);
+  background-color: var(--clr-neutral-100);
+  box-shadow: 3px 0 20px var(--shadow);
+  font-size: var(--size-150);
+
+  display: flex;
+  flex-flow: column;
+  gap: var(--size-150);
+}
+
+[data-menu-list][aria-hidden="false"]::before {
+  content: "";
+  display: block;
+  width: var(--overlay-width);
+  transform: translate(calc(0px - var(--overlay-width)));
+  background-color: var(--overlay-color);
+  position: absolute;
+  inset: 0 auto 0 0;
+}
+
+/* Utilities */
+
+.container {
+  width: 93vw;
+  margin: 0 auto;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.pt-100 {
+  padding-block-start: var(--size-100);
+}
+.pt-200 {
+  padding-block-start: var(--size-200);
+}
+.pt-300 {
+  padding-block-start: var(--size-300);
+}
+.pt-400 {
+  padding-block-start: var(--size-400);
+}
+.pt-500 {
+  padding-block-start: var(--size-500);
+}
+.pt-600 {
+  padding-block-start: var(--size-600);
+}
+.pt-700 {
+  padding-block-start: var(--size-700);
+}

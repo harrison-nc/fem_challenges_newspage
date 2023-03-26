@@ -1,0 +1,22 @@
+:root {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: inherit;
+}
+
+menu[role="list"],
+ul[role="list"] {
+  list-style: none;
+}
+
+svg,
+img,
+picture {
+  display: block;
+  max-width: 100%;
+}

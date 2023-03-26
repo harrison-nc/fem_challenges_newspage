@@ -43,6 +43,16 @@ body {
   gap: var(--size-700);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: var(--clr-primary-200);
+  transition: color 0.35s ease-in-out;
+}
+
 main {
   padding: 0 0 var(--size-300) 0;
 }
@@ -54,7 +64,6 @@ footer {
 
 footer a {
   color: var(--clr-neutral-100);
-  text-decoration: none;
 }
 
 h1 {
@@ -82,11 +91,6 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.menu-list a {
-  text-decoration: none;
-  color: inherit;
 }
 
 @media (max-width: 963px) {
@@ -205,13 +209,20 @@ h3 {
 button {
   border: none;
   background-color: var(--clr-primary-200);
-  padding: var(--size-100) var(--size-200);
+  padding: calc(var(--size-100) * 0.75) var(--size-300);
   text-transform: uppercase;
   letter-spacing: 1.75px;
   font-weight: var(--fw-200);
   color: var(--clr-neutral-100);
+  cursor: pointer;
+  transition: background-color 0.5s ease-out 0.15s, 
+    color 0.25s ease-in 0.15s;
 }
 
+button:hover {
+  color: var(--clr-neutral-200);
+  background-color: var(--clr-neutral-400);
+}
 /* Articles */
 
 .articles > article {
@@ -264,6 +275,9 @@ button {
   min-height: 400px;
 }
 
+.news a:hover {
+  color: var(--clr-primary-100);
+}
 .news h2 {
   color: var(--clr-primary-100);
 }

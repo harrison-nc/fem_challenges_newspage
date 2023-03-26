@@ -46,6 +46,10 @@ body {
 
 /* Navigation */
 
+.logo {
+  width: 48px;
+}
+
 .primary-navigation {
   display: flex;
   justify-content: space-between;
@@ -74,7 +78,7 @@ body {
 }
 
 [data-menu-toggle-icon]::before {
-  --size: 20px;
+  --size: 16px;
 
   content: "";
   display: block;
@@ -88,7 +92,7 @@ body {
   cursor: pointer;
 }
 
-[data-menu-list][aria-hidden="false"] {
+[data-menu-list] {
   --width: 65vw;
   --shadow: hsl(240, 100%, 5%, 0.7);
   --overlay-width: calc(100vw - var(--width));
@@ -108,7 +112,7 @@ body {
   gap: var(--size-150);
 }
 
-[data-menu-list][aria-hidden="false"]::before {
+[data-menu-list]::before {
   content: "";
   display: block;
   width: var(--overlay-width);
